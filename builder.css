@@ -1,0 +1,1169 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+:root {
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-light: #dbeafe;
+    --success-color: #10b981;
+    --danger-color: #dc2626;
+    --warning-color: #f59e0b;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --border-color: #e5e7eb;
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 0.5rem;
+    --transition: all 0.2s ease;
+    
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Icons */
+i {
+    margin-right: 0.5rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.progress-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.progress-percentage {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.completion-message {
+    font-size: 0.75rem;
+    color: var(--success-color);
+    margin-top: 0.5rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.completion-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Container */
+.container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+/* Form Section */
+.form-section {
+    flex: 1;
+    max-width: 50%;
+    background: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-header h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.clear-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.clear-btn:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+.template-btn {
+    padding: 0.5rem 1rem;
+    background: var(--warning-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.template-btn:hover {
+    background: #e67e22;
+    transform: translateY(-1px);
+}
+
+.form-section-block {
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-section-block h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.add-btn {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.add-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.form-group:focus-within {
+    transform: scale(1.02);
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Education, Experience, Certification, Achievement, and Project Items */
+.education-item,
+.experience-item,
+.certification-item,
+.achievement-item,
+.project-item {
+    background: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    animation: slideInLeft 0.3s ease;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.item-title {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.remove-btn {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: #b91c1c;
+    transform: scale(1.1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+/* Skills */
+.skills-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skills-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+}
+
+.skills-input button {
+    padding: 0.75rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.skills-input button:hover {
+    background: var(--primary-dark);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--primary-light);
+    color: #1e40af;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    animation: fadeInScale 0.3s ease;
+}
+
+.skill-tag button {
+    background: none;
+    border: none;
+    color: #1e40af;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.skill-tag button:hover {
+    color: #1e3a8a;
+}
+
+.suggested-skills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.skill-chip {
+    padding: 0.25rem 0.75rem;
+    background: #f3f4f6;
+    color: var(--text-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.skill-chip:hover {
+    background: var(--primary-light);
+    color: #1e40af;
+}
+
+/* Preview Section */
+.preview-section {
+    flex: 1;
+    max-width: 50%;
+    background: #f9fafb;
+    overflow-y: auto;
+    position: relative;
+}
+
+.preview-header {
+    position: sticky;
+    top: 0;
+    background: #f9fafb;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.template-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.template-selector select {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+.download-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.resume-preview {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    min-height: 100%;
+}
+/* Drag and Drop Styles */
+.resume-section {
+  cursor: move; /* Add this to existing .resume-section */
+  transition: transform 0.2s; /* Add this to existing .resume-section */
+  position: relative; /* Add this */
+}
+
+.resume-section.dragging {
+  opacity: 0.5;
+  background: #f0f9ff;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.resume-section.drag-over {
+  border-top: 2px solid var(--primary-color);
+  margin-top: 10px;
+}
+
+.drag-handle {
+  position: absolute;
+  left: -25px;
+  top: 15px;
+  color: var(--text-light);
+  cursor: move;
+}
+
+/* Professional Template Styles */
+.professional .resume-header {
+    border-bottom: 4px solid var(--primary-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.professional .resume-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Modern Template Styles */
+.modern .resume-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.modern .resume-name {
+    color: var(--primary-dark);
+}
+
+.modern .resume-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Creative Template Styles */
+.creative .resume-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.creative .resume-name,
+.creative .contact-item {
+    color: white;
+}
+
+.creative .contact-item a {
+    color: white;
+    text-decoration: underline;
+}
+
+.creative .resume-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-light);
+    min-height: 400px;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Resume Content */
+.resume-header {
+    border-bottom: 4px solid var(--primary-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.6s ease;
+}
+
+.resume-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    animation: slideUp 0.6s ease;
+}
+
+.resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    animation: fadeIn 0.6s ease;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary-dark);
+}
+
+.resume-section {
+    margin-bottom: 2rem;
+    animation: fadeIn 0.6s ease;
+}
+
+.resume-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.resume-section p {
+    color: var(--text-color);
+    line-height: 1.6;
+    animation: slideUp 0.6s ease;
+}
+
+.resume-item {
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.6s ease;
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.resume-item-subtitle {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.resume-item-date {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+.resume-item-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-item {
+    padding: 0.5rem 0.75rem;
+    background: var(--primary-light);
+    color: #1e40af;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    animation: fadeInScale 0.4s ease;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.modal-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.modal-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.modal-header button:hover {
+    background: #f3f4f6;
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Template Options */
+.template-option {
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.template-option:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.template-option h4 {
+    margin-top: 0.5rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.template-preview {
+    height: 200px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.template-preview .template-header {
+    height: 40px;
+    background: var(--primary-color);
+}
+
+.template-preview .template-content {
+    height: 160px;
+    background: white;
+    padding: 1rem;
+}
+
+.template-preview.professional .template-header {
+    background: var(--primary-color);
+}
+
+.template-preview.professional .template-content {
+    display: flex;
+}
+
+.template-preview.modern .template-header {
+    background: #4f46e5;
+}
+
+.template-preview.creative .template-header {
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+}
+
+/* Mobile Styles */
+.mobile-preview-btn {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 100;
+}
+
+.mobile-preview-btn button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.mobile-preview-btn button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+.glass-footer {
+    background: rgba(255, 255, 255, 0.1); /* Glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 3rem 2rem 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    flex: 1 1 300px;
+}
+
+.footer-brand .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary, #00BFFF); /* fallback if variable not defined */
+}
+
+.footer-brand .logo i {
+    margin-right: 0.5rem;
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    color: #ddd;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.social-links a {
+    color: #6c4848;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary, #00BFFF);
+}
+
+.footer-links {
+    flex: 1 1 150px;
+}
+
+.footer-links h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-links a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary, #00BFFF);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-top: 1.5rem;
+    }
+
+    .footer-brand {
+        margin-bottom: 2rem;
+    }
+}
+
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .form-section,
+    .preview-section {
+        max-width: 100%;
+    }
+    
+    .preview-section {
+        display: none;
+    }
+    
+    .mobile-preview-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-section {
+        padding: 1rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+    
+    .skills-input {
+        flex-direction: column;
+    }
+    
+    .resume-item-header {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .resume-contact {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .resume-name {
+        font-size: 2rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-container {
+        padding: 0.75rem 1rem;
+    }
+    
+    .resume-preview {
+        padding: 1rem;
+    }
+    
+    .resume-name {
+        font-size: 1.75rem;
+    }
+    
+    .form-section-block h2 {
+        font-size: 1.125rem;
+    }
+    
+    .download-btn,
+    .mobile-preview-btn button {
+        padding: 0.75rem 1rem;
+    }
+    
+    .template-option {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+    }
+    
+    .progress-container,
+    .form-section,
+    .preview-header,
+    .mobile-preview-btn,
+    .modal {
+        display: none !important;
+    }
+    
+    .container {
+        display: block;
+    }
+    
+    .preview-section {
+        max-width: 100%;
+        background: white;
+    }
+    
+    .resume-preview {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .resume-header {
+        border-bottom: 2px solid #000;
+    }
+    
+    .resume-section h2 {
+        border-left: 3px solid #000;
+    }
+    
+    .skill-item {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+    }
+    
+    a {
+        color: #000 !important;
+        text-decoration: underline !important;
+    }
+    
+    .empty-state {
+        display: none;
+    }
+}

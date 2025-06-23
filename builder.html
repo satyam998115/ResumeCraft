@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume Builder</title>
+    <link rel="stylesheet" href="builder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-info">
+            <span class="progress-label">Resume Completion</span>
+            <span class="progress-percentage">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="completion-message" id="completionMessage">
+            🎉 Congratulations! Your resume is complete.
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <div class="form-header">
+                <h1><i class="fas fa-file-alt"></i> Resume Builder</h1>
+                <div class="form-actions">
+                    <button class="clear-btn" onclick="clearForm()"><i class="fas fa-trash-alt"></i> Clear All</button>
+                    <button class="template-btn" onclick="showTemplates()"><i class="fas fa-palette"></i> Templates</button>
+                </div>
+            </div>
+
+            <form id="resumeForm">
+                <!-- Personal Information -->
+                <section class="form-section-block">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe" oninput="updateResume()">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com" oninput="updateResume()">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567" oninput="updateResume()">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" placeholder="City, State, Country" oninput="updateResume()">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="url" id="linkedin" placeholder="linkedin.com/in/johndoe" oninput="updateResume()">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website/Portfolio</label>
+                            <input type="url" id="website" placeholder="www.johndoe.com" oninput="updateResume()">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Summary -->
+                <section class="form-section-block">
+                    <h2><i class="fas fa-user-tie"></i> Profile Summary</h2>
+                    <div class="form-group">
+                        <textarea id="profileSummary" rows="4" placeholder="A brief professional summary highlighting your key skills and experience..." oninput="updateResume()"></textarea>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section class="form-section-block">
+                    <h2><i class="fas fa-star"></i> Skills</h2>
+                    <div class="skills-input">
+                        <input type="text" id="skillInput" placeholder="Enter a skill and press Enter">
+                        <button type="button" onclick="addSkill()">Add</button>
+                    </div>
+                    <div class="skills-container" id="skillsContainer"></div>
+                    <div class="suggested-skills">
+                        <span>Popular: </span>
+                        <span class="skill-chip" onclick="addSuggestedSkill('JavaScript')">JavaScript</span>
+                        <span class="skill-chip" onclick="addSuggestedSkill('Python')">Python</span>
+                        <span class="skill-chip" onclick="addSuggestedSkill('Project Management')">Project Management</span>
+                        <span class="skill-chip" onclick="addSuggestedSkill('UI/UX Design')">UI/UX Design</span>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section class="form-section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-briefcase"></i> Experience</h2>
+                        <button type="button" class="add-btn" onclick="addExperience()"><i class="fas fa-plus"></i> Add Experience</button>
+                    </div>
+                    <div id="experienceContainer"></div>
+                </section>
+
+                <!-- Education -->
+                <section class="form-section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                        <button type="button" class="add-btn" onclick="addEducation()"><i class="fas fa-plus"></i> Add Education</button>
+                    </div>
+                    <div id="educationContainer"></div>
+                </section>
+
+                <!-- Certifications -->
+                <section class="form-section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+                        <button type="button" class="add-btn" onclick="addCertification()"><i class="fas fa-plus"></i> Add Certification</button>
+                    </div>
+                    <div id="certificationContainer"></div>
+                </section>
+
+                <!-- Achievements -->
+                <section class="form-section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                        <button type="button" class="add-btn" onclick="addAchievement()"><i class="fas fa-plus"></i> Add Achievement</button>
+                    </div>
+                    <div id="achievementContainer"></div>
+                </section>
+
+                <!-- Projects -->
+                <section class="form-section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                        <button type="button" class="add-btn" onclick="addProject()"><i class="fas fa-plus"></i> Add Project</button>
+                    </div>
+                    <div id="projectContainer"></div>
+                </section>
+            </form>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-section">
+            <div class="preview-header">
+                <div class="template-selector" id="templateSelector">
+                    <select id="templateSelect" onchange="changeTemplate()">
+                        <option value="professional">Professional</option>
+                        <option value="modern">Modern</option>
+                        <option value="creative">Creative</option>
+                    </select>
+                </div>
+                <button class="download-btn" onclick="downloadResume()"><i class="fas fa-download"></i> Download</button>
+            </div>
+            <div class="resume-preview" id="resumePreview">
+                <div class="empty-state">
+                    <div class="empty-icon">📄</div>
+                    <h3>Resume Preview</h3>
+                    <p>Start filling out the form to see your resume come to life</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates Modal -->
+    <div class="modal" id="templatesModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Choose a Template</h3>
+                <button onclick="closeModal('templatesModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="template-option" onclick="selectTemplate('professional')">
+                    <div class="template-preview professional">
+                        <div class="template-header"></div>
+                        <div class="template-content"><p>A professional resume is a formal document that 
+                            presents an individual's background, skills, qualifications, and accomplishments 
+                            in a structured and concise format. It is primarily used to apply for jobs, internships,
+                             or academic opportunities and serves as a marketing tool that showcases your suitability
+                              for a specific role. A professional resume highlights your strengths, uses industry-relevant
+                                 keywords, and maintains consistency in design and tone. </p></div>
+                    </div>
+                    <h4>Professional</h4>
+                </div>
+                <div class="template-option" onclick="selectTemplate('modern')">
+                    <div class="template-preview modern">
+                        <div class="template-header"></div>
+                        <div class="template-content"><p>A modern resume is a contemporary version of the traditional resume that
+                             combines clean design, clear structure, and the use of technology to effectively present an individual's 
+                             qualifications. It typically features a minimalistic layout, 
+                             and icons to enhance readability and visual appeal. A modern resume often includes sections like a summary,
+                              skills, experience, education, projects and may also include links to online portfolios
+                               or GitHub profiles.</p></div>
+                    </div>
+                    <h4>Modern</h4>
+                </div>
+                <div class="template-option" onclick="selectTemplate('creative')">
+                    <div class="template-preview creative">
+                        <div class="template-header"></div>
+                        <div class="template-content"><p>A creative resume is a visually unique version of a traditional resume that uses design, layout, and style to showcase personality and creativity. It often includes colors, graphics, icons, and custom formatting to stand out. Creative resumes are popular in design, media, and marketing fields where visual impact matters. They still present key information like skills, experience, and education but do so in a more engaging and personalized way.</p></div>
+                    </div>
+                    <h4>Creative</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Preview Button -->
+    <div class="mobile-preview-btn">
+        <button onclick="showMobilePreview()"><i class="fas fa-eye"></i> Preview</button>
+    </div>
+
+    <!-- Mobile Preview Modal -->
+    <div class="modal mobile-modal" id="mobileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Resume Preview</h3>
+                <button onclick="closeModal('mobileModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalContent"></div>
+        </div>
+    </div>
+     <!-- Modify the section HTML templates to include: -->
+<section class="resume-section" draggable="true" id="preview-${sectionId}">
+  <i class="fas fa-grip-lines drag-handle"></i>
+  <!-- rest of your section content -->
+
+  <!-- footer section-->
+
+  <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <span>ResumeCraft</span>
+                </div>
+                <p>Building better resumes for better careers since 2025</p>
+                <div class="social-links">
+                    <a href="https://x.com/SatyamVish33057" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/satyam-vishwakarma9981/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/satyam_x20/?hl=en" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://satyamsportfolio2025.netlify.app/" target="_blank" aria-label="Instagram"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <a href="#">Features</a>
+                <a href="#">Templates</a>
+                <a href="#">Pricing</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="https://satyamsportfolio2025.netlify.app/" target="_blank">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="https://satyamsportfolio2025.netlify.app/" target="_blank">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ResumeCraft. All rights reserved.</p>
+        </div>
+    </footer>
+</section>
+
+    <script src="builder.js"></script>
+</body>
+</html>

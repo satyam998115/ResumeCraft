@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeCraft | Build Your Perfect Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">
+            <i class="fas fa-file-alt"></i>
+            <span>ResumeCraft</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#templates">Templates</a>
+            <a href="#testimonials">Success Stories</a>
+            <a href="#builder" class="cta-button">Build Your Resume</a>
+        </div>
+        <!-- Mobile menu toggle (hidden by default, shown via media query) -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+            <button class="close-menu" aria-label="Close navigation">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="mobile-nav-links">
+                <a href="#features">Features</a>
+                <a href="#templates">Templates</a>
+                <a href="#testimonials">Success Stories</a>
+                <a href="#builder" class="cta-button">Build Your Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate delay-1">
+            <h1>Craft Resumes That <span class="highlight">Get You Hired</span></h1>
+            <p class="subtitle">The most powerful resume builder that helps you create professional resumes in minutes and land your dream job</p>
+            <div class="hero-buttons">
+                <a href="#builder" class="primary-button">Start Building - It's Free</a>
+                <a href="#demo" class="secondary-button">Watch Demo <i class="fas fa-play-circle"></i></a>
+            </div>
+        </div>
+        <div class="hero-image animate delay-2">
+            <div class="resume-mockup">
+                <div class="resume-preview">
+                    <!-- Animated resume preview sections will be injected by JS -->
+                </div>
+                <div class="floating-icons">
+                    <i class="fas fa-check-circle floating-icon" style="--delay: 0s"></i>
+                    <i class="fas fa-star floating-icon" style="--delay: 0.5s"></i>
+                    <i class="fas fa-heart floating-icon" style="--delay: 1s"></i>
+                    <i class="fas fa-rocket floating-icon" style="--delay: 1.5s"></i>
+                    <i class="fas fa-trophy floating-icon" style="--delay: 2s"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header animate delay-1">
+            <h2>Why Choose <span>ResumeCraft</span></h2>
+            <p>We've built the most advanced resume builder with job seekers in mind</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate delay-2">
+                <div class="feature-icon">
+                   <a href="/builder.html"> <i class="fas fa-magic"></i></a>
+                </div>
+                <h3>Smart Design</h3>
+                <p>Our AI-powered design system automatically formats your resume to look perfect</p>
+            </div>
+            <div class="feature-card animate delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>ATS Optimization</h3>
+                <p>Beat applicant tracking systems with our optimized templates</p>
+            </div>
+            <div class="feature-card animate delay-4">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Content Suggestions</h3>
+                <p>Get AI-powered suggestions for impactful bullet points and summaries</p>
+            </div>
+            <div class="feature-card animate delay-5">
+                <div class="feature-icon">
+                    <i class="fas fa-file-download"></i>
+                </div>
+                <h3>Multiple Formats</h3>
+                <p>Download as PDF, Word, or plain text with one click</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Showcase -->
+    <section id="templates" class="templates">
+        <div class="section-header animate delay-1">
+            <h2>Beautiful <span>Templates</span></h2>
+            <p>Choose from our collection of professionally designed templates</p>
+        </div>
+        <div class="template-grid">
+            <div class="template-item animate delay-2">
+                <a href="/builder.html"><h4 class="template-heading">Most Popuper</h4></a>
+                <div class="template-preview professional">
+                    <div class="template-badge">Most Popular</div>
+                   <div class="template-img">
+                     <a href="/builder.html"><img src="/image/image.png"  alt=""></a>
+                   </div>
+                </div>
+                
+            </div>
+            <div class="template-item animate delay-3">
+                <a href="/builder.html"><h4 class="template-heading">Modern</h4></a>
+                <div class="template-preview modern">
+                    <div class="template-badge">Trending</div>
+                    <div class="template-img">
+                     <a href="/builder.html"><img src="/image/img2.png"  alt=""></a>
+                   </div>
+                </div>
+                
+            </div>
+            <div class="template-item animate delay-4">
+                <a href="/builder.html"><h4 class="template-heading">Creative</h4></a>
+                <div class="template-preview creative">
+                    <div class="template-badge">Creative</div>
+                    <div class="template-img">
+                     <a href="/builder.html"><img src="/image/img3.png"  alt=""></a>
+                   </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="section-header animate delay-1">
+            <h2>Success <span>Stories</span></h2>
+            <p>Hear from people who landed jobs with ResumeCraft</p>
+        </div>
+        <div id="testimonials-container" class="testimonials-wrapper">
+            <div id="testimonials-track" class="testimonials-track">
+                <!-- Testimonials will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="builder" class="cta-section animate delay-1">
+        <div class="cta-content">
+            <h2>Ready to Build Your <span>Dream Resume?</span></h2>
+            <p>Join over 5000 professionals who got hired with ResumeCraft</p>
+            <a href="builder.html" target="_blank" class="primary-button">Start Building Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="cta-image">
+            <img src="/image/img4.png">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <span>ResumeCraft</span>
+                </div>
+                <p>Building better resumes for better careers since 2025</p>
+                <div class="social-links">
+                    <a href="https://x.com/SatyamVish33057" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/satyam-vishwakarma9981/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/satyam_x20/?hl=en" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://satyamsportfolio2025.netlify.app/" target="_blank" aria-label="Instagram"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#templates">Templates</a>
+                <a href="#">Pricing</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="https://satyamsportfolio2025.netlify.app/" target="_blank">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="https://satyamsportfolio2025.netlify.app/" target="_blank">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ResumeCraft. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
