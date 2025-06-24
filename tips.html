@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeCraft - Ultimate Resume Builder</title>
+  <link rel="stylesheet" href="tips.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <i class="fas fa-file-alt"></i>
+        <h1>ResumeCraft</h1>
+      </div>
+      <p class="tagline">Build resumes that get you hired</p>
+      <div class="header-buttons">
+        <button id="downloadPdf">
+          <i class="fas fa-download"></i> Download Guide
+        </button>
+        <button id="templateBtn">
+          <i class="fas fa-file-code"></i> Get Templates
+        </button>
+        <button><a href="/index.html"><i class="fas fa-home" style="color: rgb(102, 102, 231);"></i></a><a href="/index.html" style="color: rgb(102, 102, 231); text-decoration: none;">Home</a></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <main>
+    <section class="card">
+      <h2><i class="fas fa-thumbtack"></i> Resume Importance</h2>
+      <p>Your resume is your professional first impression. In today's competitive job market, a strong resume can be the difference between landing an interview or being overlooked.</p>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">6-7</div>
+          <div class="stat-label">Seconds recruiters spend</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">75%</div>
+          <div class="stat-label">Resumes rejected by ATS</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2X</div>
+          <div class="stat-label">More interviews</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-file-alt"></i> Resume Types</h2>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="chronological">Chronological</button>
+        <button class="tab-btn" data-tab="functional">Functional</button>
+        <button class="tab-btn" data-tab="combination">Combination</button>
+      </div>
+      <div class="tab-content active" id="chronological">
+        <p>Lists work experience in reverse chronological order. Best for those with steady employment history.</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Shows career progression</li>
+          <li><i class="fas fa-check-circle"></i> Preferred by most employers</li>
+          <li><i class="fas fa-check-circle"></i> Highlights promotions</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="functional">
+        <p>Focuses on skills rather than work history. Ideal for career changers or employment gaps.</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Emphasizes transferable skills</li>
+          <li><i class="fas fa-check-circle"></i> Downplays work history</li>
+          <li><i class="fas fa-check-circle"></i> Good for new graduates</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="combination">
+        <p>Blends chronological and functional formats. Perfect for technical professionals.</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Highlights both skills and experience</li>
+          <li><i class="fas fa-check-circle"></i> Great for project-based work</li>
+          <li><i class="fas fa-check-circle"></i> Preferred in tech industries</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card checklist-card">
+      <h2><i class="fas fa-check-double"></i> Resume Checklist</h2>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="check1" checked>
+          <label for="check1">Professional email address</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="check2">
+          <label for="check2">Quantified achievements</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="check3">
+          <label for="check3">ATS-friendly formatting</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="check4">
+          <label for="check4">Tailored to job description</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="check5">
+          <label for="check5">No spelling/grammar errors</label>
+        </div>
+      </div>
+      <button class="print-checklist">
+        <i class="fas fa-print"></i> Print Checklist
+      </button>
+    </section>
+
+    <section class="card">
+      <a href="https://resume-ats-xi.vercel.app/" style="text-decoration: none;"><h2><i class="fas fa-key"></i> ATS Optimization</h2></a>
+      <div class="keyword-finder">
+        <h3>Job Description Analyzer</h3>
+        <textarea placeholder="Paste job description here..." id="jobDescription"></textarea>
+        <button id="analyzeBtn">Extract Keywords</button>
+        <div class="keywords-display" id="keywordsDisplay"></div>
+      </div>
+      <div class="tip-box">
+        <p><i class="fas fa-lightbulb"></i> Tip: Use these keywords naturally throughout your resume to pass ATS screening.</p>
+      </div>
+    </section>
+
+    <section class="card action-card">
+      <h2><i class="fas fa-rocket"></i> Action Verbs</h2>
+      <div class="action-verbs">
+        <div class="verb-category">
+          <h4>Leadership</h4>
+          <ul>
+            <li>Spearheaded</li>
+            <li>Championed</li>
+            <li>Orchestrated</li>
+            <li>Pioneered</li>
+          </ul>
+        </div>
+        <div class="verb-category">
+          <h4>Technical</h4>
+          <ul>
+            <li>Engineered</li>
+            <li>Programmed</li>
+            <li>Automated</li>
+            <li>Debugged</li>
+          </ul>
+        </div>
+        <div class="verb-category">
+          <h4>Creative</h4>
+          <ul>
+            <li>Designed</li>
+            <li>Conceptualized</li>
+            <li>Revitalized</li>
+            <li>Innovated</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card resources-card">
+      <h2><i class="fas fa-book-open"></i> Student Resources</h2>
+      <div class="resources-grid">
+        <div class="resource">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>First Resume Guide</h3>
+          <p>Step-by-step guide for students with no work experience</p>
+        </div>
+        <div class="resource">
+          <i class="fas fa-project-diagram"></i>
+          <h3>Project Examples</h3>
+          <p>Academic projects that impress employers</p>
+        </div>
+        <div class="resource">
+          <i class="fas fa-handshake"></i>
+          <h3>Internship Tips</h3>
+          <p>How to land your first internship</p>
+        </div>
+        <div class="resource">
+          <i class="fas fa-network-wired"></i>
+          <h3>Networking Scripts</h3>
+          <p>Email templates for reaching out to professionals</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>ResumeCraft</h3>
+        <p>Helping students and professionals build better resumes since 2025</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/index.html">Templates</a></li>
+          <li><a href="/index.html">Examples</a></li>
+          <li><a href="/index.html">Cover Letters</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/satyam-vishwakarma9981/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/SatyamVish33057"><i class="fab fa-twitter"></i></a>
+          <a href="https://satyamsportfolio2025.netlify.app/" target="_blank" aria-label="Instagram"><i class="fa-solid fa-globe"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2023 ResumeCraft Pro. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="tips.js"></script>
+</body>
+</html>
